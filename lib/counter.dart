@@ -10,8 +10,6 @@ class Counter extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final count = ref.watch(counterProvider);
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Counter'),
@@ -22,9 +20,14 @@ class Counter extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-            child: Text(
-              count.toString(),
-              style: const TextStyle(fontSize: 50),
+            child: Consumer(
+              builder: (context, ref, child) {
+                final count = ref.watch(counterProvider);
+                return Text(
+                  count.toString(),
+                  style: const TextStyle(fontSize: 50),
+                );
+              },
             ),
           ),
           const SizedBox(height: 20),
