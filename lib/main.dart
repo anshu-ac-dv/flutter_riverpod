@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: .fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: HomeScreen(),
+        home: HomeScreen2(),
       ),
     );
   }
