@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod_tutorial/counter.dart';
 import 'package:flutter_riverpod_tutorial/home_screen.dart';
 
 void main() {
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: .fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: HomeScreen2(),
+        //home: HomeScreen2(),
+        home: Counter(),
       ),
     );
   }
