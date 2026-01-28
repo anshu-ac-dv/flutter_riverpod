@@ -18,7 +18,31 @@ class SliderPage extends ConsumerWidget {
         children: [
           Consumer(
             builder: (context, ref, child) {
-              final ProviderSlider = ref.watch(sliderProvider);
+              final slider = ref.watch(
+                sliderProvider.select((state) => state.showPassword),
+              );
+              return InkWell(
+                onTap: () {
+                  final Slider = ref.read(sliderProvider.notifier);
+                  Slider.state = Slider.state.copyWith(showPassword: !slider);
+                },
+                child: Container(
+                  height: 200,
+                  width: 200,
+                  child: Center(
+                    child: slider
+                        ? Icon(Icons.ice_skating)
+                        : Icon(Icons.snowboarding),
+                  ),
+                ),
+              );
+            },
+          ),
+          Consumer(
+            builder: (context, ref, child) {
+              final ProviderSlider = ref.watch(
+                sliderProvider.select((state) => state.sliderValue),
+              );
               return Container(
                 height: 200,
                 width: 200,
@@ -28,11 +52,14 @@ class SliderPage extends ConsumerWidget {
           ),
           Consumer(
             builder: (context, ref, child) {
-              final ProviderSlider = ref.watch(sliderProvider);
+              final ProviderSlider = ref.watch(
+                sliderProvider.select((state) => state.sliderValue),
+              );
               return Slider(
                 value: ProviderSlider,
                 onChanged: (value) {
-                  ref.read(sliderProvider.notifier).state = value;
+                  final Slider = ref.read(sliderProvider.notifier);
+                  Slider.state = Slider.state.copyWith(sliderValue: value);
                 },
               );
             },
