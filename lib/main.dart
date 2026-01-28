@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod_tutorial/counter.dart';
 import 'package:flutter_riverpod_tutorial/home_screen.dart';
+import 'package:flutter_riverpod_tutorial/slider_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +23,8 @@ class MyApp extends StatelessWidget {
           colorScheme: .fromSeed(seedColor: Colors.deepPurple),
         ),
         //home: HomeScreen2(),
-        home: Counter(),
+        //home: Counter(),
+        home: SliderPage(),
       ),
     );
   }
