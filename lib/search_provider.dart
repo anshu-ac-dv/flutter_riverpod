@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final stateProvider = StateNotifierProvider<SearchNotifier, String>((ref){
+final searchProvider = StateNotifierProvider<SearchNotifier, String>((ref){
   return SearchNotifier();
 });
 
