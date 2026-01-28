@@ -17,10 +17,19 @@ class Search extends ConsumerWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          TextField(
-            onChanged: (value){
-              ref.watch(searchProvider.notifier).search(value);
-            },
+          Padding(
+            padding: const EdgeInsets.all(80.0),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Search',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              onChanged: (value){
+                ref.watch(searchProvider.notifier).search(value);
+              },
+            ),
           ),
           Text(SearchProvider),
         ],
