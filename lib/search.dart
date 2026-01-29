@@ -7,7 +7,6 @@ class Search extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final SearchProvider = ref.watch(searchProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Search'),
@@ -31,7 +30,10 @@ class Search extends ConsumerWidget {
               },
             ),
           ),
-          Text(SearchProvider),
+          Consumer(builder: (context, ref, child){
+            final SearchProvider = ref.watch(searchProvider);
+            return Text(SearchProvider);
+          })
         ],
       ),
     );

@@ -11,3 +11,9 @@ class SearchNotifier extends StateNotifier<String>{
     state = query;
   }
 }
+
+class SearchState{
+  String search;
+
+  SearchState({required this.search});
+}
