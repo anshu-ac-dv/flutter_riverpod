@@ -38,20 +38,25 @@ class Search extends ConsumerWidget {
           Consumer(
             builder: (context, ref, child) {
               // Calling the watch method for the class and passing the query as an argument
-              final SearchProvider = ref.watch(searchProvider);
+              final SearchProvider = ref.watch(
+                // Creating a select method for the class and passing the query as an argument
+                searchProvider.select((state) => state.search),
+              );
               // Returning the text field with the value of the query
-              return Text(SearchProvider.search);
+              return Text(SearchProvider);
             },
           ),
           // Creating a Consumer widget for the switch
           Consumer(
             builder: (context, ref, child) {
               // Calling the watch method for the class and passing the query as an argument
-              final SearchProvider = ref.watch(searchProvider);
+              final SearchProvider = ref.watch(
+                searchProvider.select((state) => state.isLoading),
+              );
               // Returning the switch with the value of the query
               return Switch(
                 // Creating a onChanged method for the switch
-                value: SearchProvider.isLoading,
+                value: SearchProvider,
                 // Creating a onChanged method for the switch
                 onChanged: (value) {
                   // Calling the isLoading method for the class and passing the value as an argument
