@@ -1,4 +1,4 @@
-# flutter Riverpod
+# Flutter Riverpod
 
 In Flutter, "State" is any data that can change while your app is running—like the temperature in your weather app, the items in a shopping cart, or whether a user is logged in.
 
