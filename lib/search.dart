@@ -32,7 +32,7 @@ class Search extends ConsumerWidget {
           ),
           Consumer(builder: (context, ref, child){
             final SearchProvider = ref.watch(searchProvider);
-            return Text(SearchProvider);
+            return Text(SearchProvider.search);
           })
         ],
       ),
