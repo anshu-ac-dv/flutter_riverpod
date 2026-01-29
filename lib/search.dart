@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod_tutorial/search_provider.dart';
 
+// This is a stateless widget for riverpord
 class Search extends ConsumerWidget {
   const Search({super.key});
 
@@ -33,6 +34,15 @@ class Search extends ConsumerWidget {
           Consumer(builder: (context, ref, child){
             final SearchProvider = ref.watch(searchProvider);
             return Text(SearchProvider.search);
+          }),
+          Consumer(builder: (context, ref, child){
+            final SearchProvider = ref.watch(searchProvider);
+            return Switch(
+              value: SearchProvider.isLoading,
+              onChanged: (value){
+                ref.watch(searchProvider.notifier).isLoading(value);
+              },
+            );
           })
         ],
       ),
