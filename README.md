@@ -18,3 +18,56 @@ Riverpod 3.0 is the industry-standard state management library in 2026. It was c
 >* Auto-Dispose: It automatically cleans up memory when a screen is closed, preventing your app from slowing down.
 
 
+## Flutter Riverpord StateLess Widget
+
+```dart
+// This is the StateLess Widget for riverpord
+class HomeScreen extends ConsumerWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref, ) {
+    final answer = ref.watch(hello);
+    final ge = ref.watch(age);
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.purpleAccent,
+        title: const Text('Home'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Text(answer +" "+ge.toString()),
+      ),
+    );
+  }
+}
+```
+
+## Flutter Riverpord StateFull Widget
+
+```dart
+// This is a stateful widget for riverpord
+class HomeScreen2 extends ConsumerStatefulWidget {
+  const HomeScreen2({super.key});
+
+  @override
+  ConsumerState<HomeScreen2> createState() => _HomeScreen2State();
+}
+
+class _HomeScreen2State extends ConsumerState<HomeScreen2> {
+  @override
+  Widget build(BuildContext context) {
+    final answer = ref.watch(hello);
+    final ge = ref.watch(age);
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.purpleAccent,
+        title: const Text('Home'),
+        centerTitle: true,
+      ),
+      body: SafeArea(child: Text(answer)),
+    );
+  }
+}
+
+```

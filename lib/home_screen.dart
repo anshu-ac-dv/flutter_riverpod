@@ -9,26 +9,26 @@ final hello = Provider<String>((ref) {
 final age = Provider<int>((ref) {
   return 22;
 });
-//
-// class HomeScreen extends ConsumerWidget {
-//   const HomeScreen({super.key});
-//
-//   @override
-//   Widget build(BuildContext context, WidgetRef ref, ) {
-//     final answer = ref.watch(hello);
-//     final ge = ref.watch(age);
-//     return Scaffold(
-//       appBar: AppBar(
-//         backgroundColor: Colors.purpleAccent,
-//         title: const Text('Home'),
-//         centerTitle: true,
-//       ),
-//       body: Center(
-//         child: Text(answer +" "+ge.toString()),
-//       ),
-//     );
-//   }
-// }
+
+class HomeScreen extends ConsumerWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref, ) {
+    final answer = ref.watch(hello);
+    final ge = ref.watch(age);
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.purpleAccent,
+        title: const Text('Home'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Text(answer +" "+ge.toString()),
+      ),
+    );
+  }
+}
 
 // This is a stateful widget for riverpord
 class HomeScreen2 extends ConsumerStatefulWidget {
