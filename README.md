@@ -71,3 +71,6 @@ class _HomeScreen2State extends ConsumerState<HomeScreen2> {
 }
 
 ```
+
+## Handling multiple state using StateNotifierProvider
+
