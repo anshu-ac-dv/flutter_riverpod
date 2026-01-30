@@ -74,3 +74,31 @@ class _HomeScreen2State extends ConsumerState<HomeScreen2> {
 
 ## Handling multiple state using StateNotifierProvider
 
+```dart
+// Creating another class for multiple state handling
+class SearchState {
+  // Creating a variable for the class
+  final String search;
+  // Creating a variable for the class
+  final bool isLoading;
+
+  // Creating a constructor for the class
+  SearchState({required this.search, required this.isLoading});
+
+  // Creating a copy constructor for the class
+  SearchState copyWith({
+    // Creating a variable for the class and calling the super constructor
+    String? search,
+    // Creating a variable for the class and calling the super constructor
+    bool? isLoading,
+  }) {
+    // Returning the class with the new values
+    return SearchState(
+      // If the new value is null, return the old value
+      // If the new value is not null, return the new value
+      search: search ?? this.search,
+      isLoading: isLoading ?? this.isLoading,
+    );
+  }
+}
+```
