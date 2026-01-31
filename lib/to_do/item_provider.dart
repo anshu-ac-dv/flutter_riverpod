@@ -7,4 +7,6 @@ final itemProvider = StateNotifierProvider<ItemNotifier, List>((ref){
 
 class ItemNotifier extends StateNotifier<List<Item>>{
   ItemNotifier() : super([]);
+
+  void addItem(String name){}
 }
