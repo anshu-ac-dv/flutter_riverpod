@@ -4,6 +4,7 @@ import 'package:flutter_riverpod_tutorial/counter.dart';
 import 'package:flutter_riverpod_tutorial/home_screen.dart';
 import 'package:flutter_riverpod_tutorial/search.dart';
 import 'package:flutter_riverpod_tutorial/slider_page.dart';
+import 'package:flutter_riverpod_tutorial/to_do/main_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
         //home: HomeScreen2(),
         //home: Counter(),
         //home: SliderPage(),
-        home: const Search(),
+        //home: const Search(),
+        home: const MainScreen(),
       ),
     );
   }
