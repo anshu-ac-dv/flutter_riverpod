@@ -32,6 +32,15 @@ class _MainScreenState extends ConsumerState<MainScreen> {
         },
         child: const Icon(Icons.add),
       ),
+      body: ListView.builder(
+        itemCount: ref.watch(itemProvider).length,
+        itemBuilder: (context, index) {
+          final item = ref.watch(itemProvider)[index];
+          return ListTile(
+            title: Text(item.name),
+          );
+        }
+      ),
     );
   }
 }
