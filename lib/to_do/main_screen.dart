@@ -49,11 +49,18 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       IconButton(
+                        icon: const Icon(Icons.edit),
+                        onPressed: () {
+                          ref.watch(itemProvider.notifier).editItem(item.id, 'Edited Item');
+                        },
+                      ),
+                      IconButton(
                         icon: const Icon(Icons.delete),
                         onPressed: () {
                           ref.read(itemProvider.notifier).removeItem(item.id);
                         },
                       ),
+
                     ],
                   ),
                 );

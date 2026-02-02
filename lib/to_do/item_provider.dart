@@ -18,4 +18,10 @@ class ItemNotifier extends StateNotifier<List<Item>>{
     state.removeWhere((item) => item.id == id);
     state= state.toList();
   }
+
+  void editItem(String id, String name){
+    final item = state.firstWhere((item) => item.id == id);
+    item.name = name;
+    state= state.toList();
+  }
 }
