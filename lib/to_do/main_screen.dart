@@ -34,12 +34,21 @@ class _MainScreenState extends ConsumerState<MainScreen> {
         child: const Icon(Icons.add),
       ),
       body: items.isEmpty
-          ? const Center(child: Text('No items'))
+          ? const Center(
+              child: Text(
+                'No items, Please add new items using the button below.',
+              ),
+            )
           : ListView.builder(
               itemCount: ref.watch(itemProvider).length,
               itemBuilder: (context, index) {
                 final item = ref.watch(itemProvider)[index];
-                return ListTile(title: Text(item.name));
+                return ListTile(
+                  title: Text(item.name),
+                  trailing: const Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [Icon(Icons.delete)]),
+                );
               },
             ),
     );
