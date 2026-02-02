@@ -12,6 +12,7 @@ class MainScreen extends ConsumerStatefulWidget {
 class _MainScreenState extends ConsumerState<MainScreen> {
   @override
   Widget build(BuildContext context) {
+    final items = ref.watch(itemProvider);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurple.shade500,
@@ -32,15 +33,15 @@ class _MainScreenState extends ConsumerState<MainScreen> {
         },
         child: const Icon(Icons.add),
       ),
-      body: ListView.builder(
-        itemCount: ref.watch(itemProvider).length,
-        itemBuilder: (context, index) {
-          final item = ref.watch(itemProvider)[index];
-          return ListTile(
-            title: Text(item.name),
-          );
-        }
-      ),
+      body: items.isEmpty
+          ? const Center(child: Text('No items'))
+          : ListView.builder(
+              itemCount: ref.watch(itemProvider).length,
+              itemBuilder: (context, index) {
+                final item = ref.watch(itemProvider)[index];
+                return ListTile(title: Text(item.name));
+              },
+            ),
     );
   }
 }
