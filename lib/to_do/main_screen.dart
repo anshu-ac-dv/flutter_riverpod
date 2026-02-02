@@ -45,9 +45,17 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                 final item = ref.watch(itemProvider)[index];
                 return ListTile(
                   title: Text(item.name),
-                  trailing: const Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [Icon(Icons.delete)]),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.delete),
+                        onPressed: () {
+                          ref.read(itemProvider.notifier).removeItem(item.id);
+                        },
+                      ),
+                    ],
+                  ),
                 );
               },
             ),
