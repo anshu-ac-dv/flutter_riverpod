@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod_tutorial/counter.dart';
-import 'package:flutter_riverpod_tutorial/home_screen.dart';
+import 'package:flutter_riverpod_tutorial/favourite_app//home_screen.dart';
 import 'package:flutter_riverpod_tutorial/search.dart';
 import 'package:flutter_riverpod_tutorial/slider_page.dart';
 import 'package:flutter_riverpod_tutorial/to_do/main_screen.dart';
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         //home: SliderPage(),
         //home: const Search(),
         //home: const MainScreen(),
-        //home: ,
+        home: const HomeScreen(),
       ),
     );
   }
