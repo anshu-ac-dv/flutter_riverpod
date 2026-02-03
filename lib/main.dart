@@ -28,7 +28,8 @@ class MyApp extends StatelessWidget {
         //home: Counter(),
         //home: SliderPage(),
         //home: const Search(),
-        home: const MainScreen(),
+        //home: const MainScreen(),
+        //home: ,
       ),
     );
   }
