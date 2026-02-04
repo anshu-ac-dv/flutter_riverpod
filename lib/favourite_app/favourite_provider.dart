@@ -1,6 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod_tutorial/favourite_app/favourite_state.dart';
-
 import 'items.dart';
 
 final favouriteStateProvider =
