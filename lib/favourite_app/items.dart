@@ -1,20 +1,15 @@
-import 'package:flutter_riverpod_tutorial/to_do/item.dart';
+class Items {
+  final String name;
+  final int id;
+  final bool isFavourite;
 
-mixin Items {
-  final String name ;
-  final int id ;
-  final bool favourite ;
+  Items({required this.name, required this.id, required this.isFavourite});
 
-  Item({required this.id,required this.name,required this.favourite});
-
-  Item copyWith({
-    String? name,
-    int? id,
-    bool? favourite,
-  }){
-    return Item(
-      id: id ?? this.id,
+  Items copyWith({String? name, int? id, bool? isFavourite}) {
+    return Items(
       name: name ?? this.name,
-      favourite: favourite ?? this.favourite,);
+      id: id ?? this.id,
+      isFavourite: isFavourite ?? this.isFavourite,
+    );
   }
 }
