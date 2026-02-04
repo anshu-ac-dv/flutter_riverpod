@@ -37,6 +37,7 @@ class FavouriteNotifier extends StateNotifier<FavouriteState> {
     state = state.copyWith(filterdItems: allItems.toList());
   }
 
+
   void filteredList(String search) {
     state = state.copyWith(filterdItems: _filterdItems(state.allItems, search));
    }

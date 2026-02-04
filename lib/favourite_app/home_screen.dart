@@ -18,6 +18,27 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         title: const Text('Favourite App'),
         centerTitle: true,
         backgroundColor: Colors.purpleAccent,
+        actions: [
+          PopupMenuButton<String>(
+            onSelected: (value) {
+              ref.read(favouriteStateProvider.notifier).filteredList(value);
+            },
+            itemBuilder: (BuildContext context) => [
+              const PopupMenuItem(
+                value: 'All',
+                child: Text('All'),
+              ),
+              const PopupMenuItem(
+                value: 'Favourites',
+                child: Text('Favourites'),
+              ),
+              const PopupMenuItem(
+                value: 'Unfavourites',
+                child: Text('Unfavourites'),
+              ),
+            ]
+          ),
+        ],
       ),
       body: Column(
         children: [
