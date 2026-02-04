@@ -21,6 +21,20 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       ),
       body: Column(
         children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Search',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              onChanged: (value) {
+                ref.read(favouriteStateProvider.notifier).filteredList(value);
+              },
+            ),
+          ),
           Expanded(
             child: ListView.builder(
               itemCount: favouriteList.filterdItems.length,
