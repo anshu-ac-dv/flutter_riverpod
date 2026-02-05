@@ -31,9 +31,12 @@ class HomeScreen4 extends ConsumerWidget {
           loading: () => const CircularProgressIndicator(),
         ),
       ),
-      floatingActionButton: FloatingActionButton(onPressed: (){
-        ref.invalidate(futureProvider);
-      }),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          ref.invalidate(futureProvider);
+        },
+        child: const Icon(Icons.refresh),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
