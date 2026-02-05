@@ -17,25 +17,24 @@ class HomeScreen4 extends ConsumerWidget {
         centerTitle: true,
         backgroundColor: Colors.purpleAccent,
       ),
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
-              child: provider.when(
-                data: (data) => ListView.builder(
-                  itemCount: data.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(title: Text(data[index].toString()));
-                  },
-                ),
-                error: (error, stack) => Text(error.toString()),
-                loading: () => const CircularProgressIndicator(),
-              ),
-            ),
-          ],
+      body: Center(
+        child: provider.when(
+          skipLoadingOnRefresh: false,
+          skipLoadingOnReload: false,
+          data: (data) => ListView.builder(
+            itemCount: data.length,
+            itemBuilder: (context, index) {
+              return Text(data[index].toString());
+            },
+          ),
+          error: (error, stack) => Text(error.toString()),
+          loading: () => const CircularProgressIndicator(),
         ),
       ),
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        ref.invalidate(futureProvider);
+      }),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
