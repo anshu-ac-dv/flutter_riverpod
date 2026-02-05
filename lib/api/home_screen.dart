@@ -10,26 +10,31 @@ class HomeScreen4 extends ConsumerWidget {
     final provider = ref.watch(futureProvider);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'),
+        title: const Text(
+          'Future Provider',
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
         backgroundColor: Colors.purpleAccent,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: provider.when(
-              data: (data) => ListView.builder(
-                itemCount: data.length,
-                itemBuilder: (context, index) {
-                  return Text(data[index].toString());
-                },
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: provider.when(
+                data: (data) => ListView.builder(
+                  itemCount: data.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(title: Text(data[index].toString()));
+                  },
+                ),
+                error: (error, stack) => Text(error.toString()),
+                loading: () => const CircularProgressIndicator(),
               ),
-              error: (error, stack) => Text(error.toString()),
-              loading: () => const CircularProgressIndicator(),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
