@@ -18,8 +18,15 @@ class HomeScreen5 extends ConsumerWidget {
           final provider = ref.watch(stockPriceProvider);
           return Center(
             child: provider.when(
+              skipLoadingOnRefresh: false,
+              skipLoadingOnReload: false,
               data: (price) => Text(price.toStringAsFixed(2).toString()),
-              error: (error, stack) => Text(error.toString()),
+              error: (error, stack) => TextButton(
+                onPressed: () {
+                  ref.invalidate(stockPriceProvider);
+                },
+                child: Text(error.toString()),
+              ),
               loading: () => const CircularProgressIndicator(),
             ),
           );
