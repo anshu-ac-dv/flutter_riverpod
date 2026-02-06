@@ -15,7 +15,11 @@ class HomeScreen5 extends ConsumerWidget {
         backgroundColor: Colors.lightBlueAccent,
       ),
       body: Center(
-
+        child: provider.when(
+          data: (price) => Text(price.toStringAsFixed(2).toString()),
+          error: (error, stack) => Text(error.toString()),
+          loading: () => const CircularProgressIndicator(),
+        ),
       ),
     );
   }
