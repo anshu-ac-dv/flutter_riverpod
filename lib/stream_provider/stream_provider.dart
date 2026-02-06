@@ -10,7 +10,7 @@ final stockPriceProvider = StreamProvider<double>((ref) async* {
     currentPrice += random.nextDouble() * 10 - 5;
     yield double.parse(currentPrice.toStringAsFixed(5));
     if(currentPrice <= 99){
-      throw ('Stock Price Reached 0');
+      throw ('Stock Price Reached 99');
     }
   }
 });
