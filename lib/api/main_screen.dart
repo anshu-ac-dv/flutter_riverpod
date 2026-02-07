@@ -8,8 +8,13 @@ class MainScreen2 extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Riverpod'),
+        title: const Text('Riverpod', style: TextStyle(color: Colors.white)),
         centerTitle: true,
+        backgroundColor: Colors.orangeAccent,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
       ),
     );
   }
